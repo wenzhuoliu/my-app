@@ -3,7 +3,7 @@ import { Dropdown, Image, MenuProps } from 'antd';
 import { UserOutlined, MailOutlined, LogoutOutlined } from '@ant-design/icons';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '../../api/auth/[...nextauth]/route';
-import { LogOut } from '../clientActions';
+import { LogOut } from '../../clientActions';
 
 const Profile: FC = async () => {
   const session = await getServerSession(authOptions);

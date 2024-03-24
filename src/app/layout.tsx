@@ -1,10 +1,10 @@
 import { Metadata } from 'next';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
-import { Content } from 'antd/lib/layout/layout';
 import Profile from './_component/Profile';
 import RouteItem from './_component/RouteItem';
 import fs from 'fs/promises';
 import styles from './layout.module.css';
+import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -49,7 +49,7 @@ const RootLayout = async ({
                   />
                 ))}
               </div>
-              <Content>{children}</Content>
+              <div className={styles.SubContent}>{children}</div>
             </div>
           </div>
         </AntdRegistry>
