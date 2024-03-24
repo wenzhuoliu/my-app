@@ -1,0 +1,33 @@
+.Body {
+  margin: 0;
+}
+
+.Container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.Header {
+  background-color: gray;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.HeaderEnd {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Content {
+  flex: 1;
+  display: flex;
+}
+
+.Sider {
+  width: 200px;
+  background-color: #000;
+}
