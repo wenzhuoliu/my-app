@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
-import { AntdRegistry } from '@ant-design/nextjs-registry';
-import styles from './layout.module.css';
 import LayoutHeader from './_component/LayoutHeader';
+import Providers from './providers';
 import './globals.css';
+import '@arco-design/web-react/dist/css/arco.css';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -21,10 +21,10 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang='en'>
       <body>
-        <AntdRegistry>
+        <Providers>
           <LayoutHeader />
-          <div className={styles.RootLayoutContainer}>{children}</div>
-        </AntdRegistry>
+          {children}
+        </Providers>
       </body>
     </html>
   );

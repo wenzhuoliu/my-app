@@ -1,12 +1,11 @@
 .ZLink {
-  /* font-size: 16px; */
   cursor: pointer;
-  color: #a1a1a1;
+  /* color: #a1a1a1; */
   box-sizing: border-box;
 }
 
 .ZLink:hover {
-  color: #ededed;
+  /* color: #ededed; */
 }
 
 .Selected {

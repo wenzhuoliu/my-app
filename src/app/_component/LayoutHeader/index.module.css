@@ -6,9 +6,7 @@
   position: sticky;
   top: 0;
   z-index: 999;
-  /* border-bottom: 1px solid #444950; */
-  backdrop-filter: saturate(180%) blur(5px);
-  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: saturate(200%) blur(5px);
   box-shadow: inset 0 -1px 0 0 #333;
 }
 
@@ -24,5 +22,5 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
 }

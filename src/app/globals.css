@@ -1,8 +1,9 @@
 body {
   margin: 0;
-  background-color: #000;
   overscroll-behavior-y: contain;
-  position: relative;
+  background-color: var(--color-bg-1);
+  color: var(--color-text-1);
+  color-scheme: dark;
 }
 
 * {

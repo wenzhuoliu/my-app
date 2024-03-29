@@ -1,38 +1,39 @@
+'use client';
+
 import { FC } from 'react';
-import { Dropdown, Image, MenuProps } from 'antd';
-import { UserOutlined, MailOutlined, LogoutOutlined } from '@ant-design/icons';
-import { getServerSession } from 'next-auth/next';
-import { authOptions } from '../../api/auth/[...nextauth]/route';
-import { LogOut } from '../../clientActions';
+import { useSession, signOut } from 'next-auth/react';
+import { Dropdown, Avatar, Menu } from '@arco-design/web-react';
+import { IconEmail, IconUser, IconExport } from '@arco-design/web-react/icon';
 
-const Profile: FC = async () => {
-  const session = await getServerSession(authOptions);
-  const dropDownItems: MenuProps['items'] = [
-    {
-      key: 0,
-      label: <div>{session?.user?.name}</div>,
-      icon: <UserOutlined />,
-    },
-    {
-      key: 1,
-      label: <div>{session?.user?.email}</div>,
-      icon: <MailOutlined />,
-    },
-    {
-      key: 2,
-      label: <div onClick={LogOut}>Logout</div>,
-      icon: <LogoutOutlined />,
-    },
-  ];
+const Profile: FC = () => {
+  const { data: session } = useSession();
 
+  const dropList = (
+    <Menu>
+      <Menu.Item key='1'>
+        <IconUser style={{ marginRight: 10 }} />
+        <span>{session?.user?.name}</span>
+      </Menu.Item>
+      <Menu.Item key='2'>
+        <IconEmail style={{ marginRight: 10 }} />
+        <span>{session?.user?.email}</span>
+      </Menu.Item>
+      <Menu.Item key='3' onClick={signOut} style={{ color: 'red' }}>
+        <IconExport style={{ marginRight: 10 }} />
+        <span>LogOut</span>
+      </Menu.Item>
+    </Menu>
+  );
   return (
-    <Dropdown trigger={['click']} menu={{ items: dropDownItems }}>
-      <Image
-        src={session?.user?.image as string}
-        width={32}
-        preview={false}
+    <Dropdown droplist={dropList} trigger='click'>
+      <Avatar
+        shape='circle'
+        size={32}
+        className='cursor-pointer'
         style={{ cursor: 'pointer' }}
-      />
+      >
+        <img src={session?.user?.image!} />
+      </Avatar>
     </Dropdown>
   );
 };
