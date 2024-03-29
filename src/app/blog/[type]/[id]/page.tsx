@@ -1,9 +1,19 @@
 import Blog from '@/app/_component/Blog';
+import styles from './index.module.css';
 
-const Page = async ({ params }: { params: { type: string; id: string } }) => {
+const BlogPage = async ({
+  params,
+}: {
+  params: { type: string; id: string };
+}) => {
   const { type, id } = params;
   const path = `${process.cwd()}/src/blog/${type}/${id}.md`;
-  return <Blog path={path} />;
+
+  return (
+    <div className={styles.BlogPageContainer}>
+      <Blog path={path} />
+    </div>
+  );
 };
 
-export default Page;
+export default BlogPage;

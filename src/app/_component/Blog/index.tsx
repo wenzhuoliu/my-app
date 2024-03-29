@@ -10,7 +10,7 @@ interface Props {
 const Blog: FC<Props> = async ({ path }) => {
   const markdown = await fs.readFile(path, 'utf-8');
   return (
-    <div className={styles.Container}>
+    <div className={styles.BlogContainer}>
       <MarkDown>{markdown}</MarkDown>
     </div>
   );

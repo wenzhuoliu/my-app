@@ -1,9 +1,7 @@
 import { Metadata } from 'next';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
-import Profile from './_component/Profile';
-import RouteItem from './_component/RouteItem';
-import fs from 'fs/promises';
 import styles from './layout.module.css';
+import LayoutHeader from './_component/LayoutHeader';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -19,47 +17,13 @@ export const metadata: Metadata = {
   ],
 };
 
-const RootLayout = async ({
-  children,
-}: Readonly<{ children: React.ReactNode }>) => {
-  const subs = await fs.readdir(`${process.cwd()}/src/blog/`, {
-    recursive: true,
-  });
-  const routePaths = subs
-    .filter((item) => {
-      return item.split('/').length != 1;
-    })
-    .map((item) => {
-      const [type, id] = item.split('.')[0].split('/');
-      return {
-        type,
-        id,
-      };
-    });
-
+const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html>
-      <body className={styles.Body}>
+    <html lang='en'>
+      <body>
         <AntdRegistry>
-          <div className={styles.Container}>
-            <div className={styles.Header}>
-              <div className={styles.HeaderEnd}>
-                <Profile />
-              </div>
-            </div>
-            <div className={styles.Content}>
-              <div className={styles.Sider}>
-                {routePaths.map((item, index) => (
-                  <RouteItem
-                    key={index}
-                    path={`/blog/${item.type}/${item.id}`}
-                    text={item.id}
-                  />
-                ))}
-              </div>
-              <div className={styles.SubContent}>{children}</div>
-            </div>
-          </div>
+          <LayoutHeader />
+          <div className={styles.RootLayoutContainer}>{children}</div>
         </AntdRegistry>
       </body>
     </html>

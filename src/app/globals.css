@@ -1,11 +1,18 @@
+body {
+  margin: 0;
+  background-color: #000;
+  overscroll-behavior-y: contain;
+  position: relative;
+}
+
 * {
   scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
   scrollbar-width: thin;
-  /* overflow-x: hidden; */
 }
 
 a {
   color: #0070f3;
+  text-decoration: none;
 }
 
 a:hover {
