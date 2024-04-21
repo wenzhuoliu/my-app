@@ -6,6 +6,7 @@ import Profile from '../Profile';
 import ZLink from '../ZLink';
 import styles from './index.module.css';
 import { IconMoonFill, IconSunFill } from '@arco-design/web-react/icon';
+import { ROOT_PATH } from '@/app/const/constants';
 
 const LayoutHeader = () => {
   const [isDark, setIsDark] = useState(() => {
@@ -45,7 +46,7 @@ const LayoutHeader = () => {
         <Logo isDark={isDark} />
       </div>
       <div className={styles.HeaderEnd}>
-        <ZLink path='./blog' text='Blog' />
+        <ZLink path={`${ROOT_PATH}/blog`} text='Blog' />
         <div>
           {isDark ? (
             <IconSunFill style={{ cursor: 'pointer' }} onClick={toLightTheme} />

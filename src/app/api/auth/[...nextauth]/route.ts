@@ -4,7 +4,7 @@ import GithubProvider from 'next-auth/providers/github';
 export function generateStaticParams() {
   return [
     {
-      nextauth: ['signin'],
+      nextauth: ['signin', 'signout'],
     },
   ];
 }

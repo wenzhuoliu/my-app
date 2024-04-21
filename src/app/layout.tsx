@@ -3,6 +3,7 @@ import LayoutHeader from './_component/LayoutHeader';
 import Providers from './providers';
 import './globals.css';
 import '@arco-design/web-react/dist/css/arco.css';
+import { ROOT_PATH } from './const/constants';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
     {
       rel: 'icon',
       type: 'image/png',
-      url: '/favicon.png',
+      url: `${ROOT_PATH}/favicon.png`,
       sizes: '256x256',
     },
   ],
