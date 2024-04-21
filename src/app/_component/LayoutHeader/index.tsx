@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import Logo from '../Logo';
 import Profile from '../Profile';
 import ZLink from '../ZLink';
