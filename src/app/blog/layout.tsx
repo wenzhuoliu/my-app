@@ -16,7 +16,7 @@ const BlogLayout = async ({ children }: { children: React.ReactNode }) => {
       if (map[parseRes.dir]) {
         map[parseRes.dir].push({
           title: parseRes.name,
-          path: `/blog/${parseRes.dir}/${parseRes.name}`,
+          path: `./blog/${parseRes.dir}/${parseRes.name}`,
         });
       } else {
         map[parseRes.dir] = [];
