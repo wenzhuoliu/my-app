@@ -1,15 +1,10 @@
-import { ROOT_PATH } from '@/app/const/constants';
 import NextAuth, { AuthOptions } from 'next-auth';
 import GithubProvider from 'next-auth/providers/github';
 
 export function generateStaticParams() {
   return [
     {
-      nextauth: [
-        `${ROOT_PATH}signin`,
-        `${ROOT_PATH}signout`,
-        `${ROOT_PATH}csrf`,
-      ],
+      nextauth: [`signin`, `signout`, `csrf`],
     },
   ];
 }

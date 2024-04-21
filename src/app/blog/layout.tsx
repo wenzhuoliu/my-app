@@ -2,7 +2,6 @@ import styles from './layout.module.css';
 import fs from 'fs/promises';
 import LayoutSider, { _MenuItem } from '../_component/LayoutSider';
 import path from 'path';
-import { ROOT_PATH } from '../const/constants';
 
 const BlogLayout = async ({ children }: { children: React.ReactNode }) => {
   const subs = await fs.readdir(`${process.cwd()}/src/blog/`, {
@@ -17,7 +16,7 @@ const BlogLayout = async ({ children }: { children: React.ReactNode }) => {
       if (map[parseRes.dir]) {
         map[parseRes.dir].push({
           title: parseRes.name,
-          path: `${ROOT_PATH}/blog/${parseRes.dir}/${parseRes.name}`,
+          path: `/blog/${parseRes.dir}/${parseRes.name}`,
         });
       } else {
         map[parseRes.dir] = [];

@@ -46,7 +46,7 @@ const LayoutHeader = () => {
         <Logo isDark={isDark} />
       </div>
       <div className={styles.HeaderEnd}>
-        <ZLink path={`${ROOT_PATH}/blog`} text='Blog' />
+        <ZLink path={`/blog`} text='Blog' />
         <div>
           {isDark ? (
             <IconSunFill style={{ cursor: 'pointer' }} onClick={toLightTheme} />

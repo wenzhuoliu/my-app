@@ -16,7 +16,7 @@ const Logo: FC<Props> = ({ isDark }) => {
   const router = useRouter();
 
   return (
-    <div className={styles.Logo} onClick={() => router.push(ROOT_PATH)}>
+    <div className={styles.Logo} onClick={() => router.push('/')}>
       <NextImage
         src={isDark ? WhiteLogoSvg : BlackLogoSvg}
         alt='ZLAND Logo'

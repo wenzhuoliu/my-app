@@ -2,6 +2,7 @@
 const nextConfig = {
   output: 'export',
   distDir: 'docs',
+  basePath: '/zland',
   assetPrefix: 'https://wenzhuoliu.github.io/zland',
 };
 
