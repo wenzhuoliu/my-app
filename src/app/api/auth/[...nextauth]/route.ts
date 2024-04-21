@@ -1,7 +1,15 @@
 import NextAuth, { AuthOptions } from 'next-auth';
 import GithubProvider from 'next-auth/providers/github';
 
-export const authOptions: AuthOptions = {
+export function generateStaticParams() {
+  return [
+    {
+      nextauth: ['signin'],
+    },
+  ];
+}
+
+const authOptions: AuthOptions = {
   secret: process.env.AUTH_SECRET,
   providers: [
     GithubProvider({

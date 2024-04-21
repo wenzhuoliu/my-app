@@ -8,22 +8,33 @@ import styles from './index.module.css';
 import { IconMoonFill, IconSunFill } from '@arco-design/web-react/icon';
 
 const LayoutHeader = () => {
-  const [isDark, setIsDark] = useState(
-    localStorage.getItem('zland-theme') === 'dark'
-  );
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof localStorage !== 'undefined') {
+      return localStorage.getItem('zland-theme') === 'dark';
+    }
+    return true;
+  });
+
   const toDarkTheme = () => {
     document.body.setAttribute('arco-theme', 'dark');
-    localStorage.setItem('zland-theme', 'dark');
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('zland-theme', 'dark');
+    }
     setIsDark(true);
   };
   const toLightTheme = () => {
     document.body.removeAttribute('arco-theme');
-    localStorage.setItem('zland-theme', 'light');
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('zland-theme', 'light');
+    }
     setIsDark(false);
   };
 
   useLayoutEffect(() => {
-    if (localStorage.getItem('zland-theme') === 'dark') {
+    if (
+      typeof localStorage !== 'undefined' &&
+      localStorage.getItem('zland-theme') === 'dark'
+    ) {
       document.body.setAttribute('arco-theme', 'dark');
     }
   }, []);

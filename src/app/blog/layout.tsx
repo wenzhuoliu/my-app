@@ -1,6 +1,5 @@
 import styles from './layout.module.css';
 import fs from 'fs/promises';
-import ZLink from '@/app/_component/ZLink';
 import LayoutSider, { _MenuItem } from '../_component/LayoutSider';
 import path from 'path';
 
@@ -8,9 +7,6 @@ const BlogLayout = async ({ children }: { children: React.ReactNode }) => {
   const subs = await fs.readdir(`${process.cwd()}/src/blog/`, {
     recursive: true,
   });
-  console.log(path.parse(subs[1]));
-  console.log(path.parse(subs[2]));
-  console.log(subs);
   const map: Record<string, _MenuItem[]> = {};
   subs.forEach((item) => {
     const parseRes = path.parse(item);

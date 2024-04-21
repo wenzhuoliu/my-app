@@ -1,6 +1,19 @@
 import Blog from '@/app/_component/Blog';
 import styles from './index.module.css';
 
+export function generateStaticParams() {
+  return [
+    {
+      type: 'golang',
+      id: 'First',
+    },
+    {
+      type: 'golang',
+      id: 'Second',
+    },
+  ];
+}
+
 const BlogPage = async ({
   params,
 }: {
