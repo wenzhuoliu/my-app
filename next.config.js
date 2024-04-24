@@ -6,4 +6,4 @@ const nextConfig = {
   assetPrefix: 'https://wenzhuoliu.github.io/zland',
 };
 
-export default nextConfig;
+module.exports = nextConfig;
